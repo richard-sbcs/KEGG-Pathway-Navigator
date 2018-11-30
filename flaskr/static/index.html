@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
+
+    <!-- clusterize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.js"></script>
+
+
+    <meta charset="utf-8">
+    <title>KEGG Pathway Navigator</title>
+    <meta name="description" content="An interactive getting started guide for Brackets.">
+    <!--<link rel="stylesheet" href="static/main.css"> -->
+
+    <script type="text/javascript" src="static/main.js"></script>
+    <!-- <script src="{{url_for('static', filename='main.js')}}"></script> -->
+</head>
+
+<body>
+    <div style="padding: 0px;" class="uk-section">
+        <div class="uk-text-center uk-container">
+            <img style="position: relative; top: 20px; width: 50px;" src="static/gene.svg" alt="KEGG Pathway Navigator">
+            <h1>KEGG Pathway Navigator</h1>
+
+        </div>
+    </div>
+    <div id="load_section" style="top:300px;" class="uk-section uk-position-absolute uk-position-top">
+
+        <div class="uk-text-center uk-container">
+            <div uk-spinner></div>
+        </div>
+        <p class="uk-text-center uk-text-meta">Loading Organisms...</p>
+    </div>
+    <div id="search_section" class="uk-section" style="opacity: 0;">
+        <div class="uk-container">
+            <p class="uk-text-large">Begin by searching for an organism below.</p>
+            <nav class="uk-navbar-container" uk-navbar>
+                <div class="uk-navbar-left">
+                    <div class="uk-navbar-item uk-search uk-search-navbar">
+                       
+                            <span uk-search-icon></span>
+                            <input id="search_bar" class="uk-search-input" type="search" placeholder="Enter a name or prefix..." onkeyup="searchDidEdit()" autocomplete="off">
+                     
+                    </div>
+
+                </div>
+            </nav>
+
+
+
+
+
+            <h4 class="uk-text-small uk-text-bold" style="float: right;">PREFIX</h4>
+            <h4 class="uk-text-small uk-text-bold">NAME</h4>
+            <hr style="margin-bottom: 0;">
+
+            <div style="min-height:315px;" id="scrollArea" class="clusterize-scroll">
+                <ul id="contentArea" class="uk-list uk-list-striped clusterize-content">
+                    <li class="clusterize-no-data"></li>
+                </ul>
+            </div>
+            <hr style="margin-top: 0;">
+
+
+
+
+        </div>
+    </div>
+
+<div uk-height-viewport="expand:true"></div>
+    <div id="about_section" class="uk-section uk-section-secondary">
+        <div class="uk-container">
+            <p>KEGG Pathway Navigator is an open-source tool for viewing and downloading pathway genes from the KEGG Pathway Database.<br>Computational Biology, Stony Brook University</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
