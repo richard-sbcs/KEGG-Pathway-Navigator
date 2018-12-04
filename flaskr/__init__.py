@@ -17,7 +17,6 @@ def get_db():
         )
         g.db.row_factory = sqlite3.Row
         g.db.execute("CREATE TABLE IF NOT EXISTS dict (key text unique, value text)")
-        print('Init db')
 
     return g.db
 
@@ -73,7 +72,6 @@ def parse_genes(text,name,code):
 def expired(date_string):
     date = datetime.datetime.strptime(date_string, "%Y-%m-%d %H:%M:%S.%f")
     delta = datetime.datetime.now()-date
-    print(delta.days)
     return delta.days > 30
 
 def create_app(test_config=None):
@@ -202,9 +200,7 @@ def create_app(test_config=None):
         try:
             db = get_db()
 
-            print(request.get_json())
-            #text = req.text
-            #texts = [fake3(),fake4()]
+            
 
             batch = []
             
@@ -265,3 +261,7 @@ def create_app(test_config=None):
     
     app.teardown_appcontext(close_db)
     return app
+
+app = create_app()
+if __name__ == '__main__':
+    app.run()
